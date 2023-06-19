@@ -1,4 +1,4 @@
-package com.petruccini.mobilesdecodeexercise.ui.theme
+package com.petruccini.mobilesdecodeexercise.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
