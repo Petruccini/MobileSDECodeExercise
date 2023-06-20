@@ -2,12 +2,11 @@ package com.petruccini.mobilesdecodeexercise.data.repositories
 
 import android.content.res.Resources
 import com.petruccini.mobilesdecodeexercise.data.file.ShipmentsRawDataSource
+import javax.inject.Inject
 
-class ShipmentsRepository (
-    private val shipmentsRawDataSource: ShipmentsRawDataSource,
-    private val resources: Resources
+class ShipmentsRepository @Inject constructor(
+    private val shipmentsFileDataSource: ShipmentsRawDataSource,
     ) {
 
-    fun getShipments() = shipmentsRawDataSource.getShipments(resources)
-
+    fun getShipments() = shipmentsFileDataSource.getShipments()
 }

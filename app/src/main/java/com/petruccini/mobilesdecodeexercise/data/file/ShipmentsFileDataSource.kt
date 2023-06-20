@@ -7,11 +7,14 @@ import com.petruccini.mobilesdecodeexercise.R
 import com.petruccini.mobilesdecodeexercise.data.model.Shipments
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
+import javax.inject.Inject
 
 
-class ShipmentsRawDataSource {
+class ShipmentsRawDataSource @Inject constructor(
+    private val resources: Resources
+) {
 
-    fun getShipments(resources: Resources): Flow<Shipments> {
+    fun getShipments(): Flow<Shipments> {
 
         val shipmentsString = resources.getJsonStringFromFile(R.raw.shipments)
         val shipments = Gson().fromJson(shipmentsString, Shipments::class.java)
