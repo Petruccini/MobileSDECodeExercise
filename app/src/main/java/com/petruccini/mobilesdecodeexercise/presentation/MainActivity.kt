@@ -1,6 +1,7 @@
 package com.petruccini.mobilesdecodeexercise.presentation
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -16,7 +17,11 @@ import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.petruccini.mobilesdecodeexercise.presentation.drivers.DriversScreen
 import com.petruccini.mobilesdecodeexercise.presentation.theme.MobileSDECodeExerciseTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,6 +42,10 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
+
+    val context = LocalContext.current
+    val navController = rememberNavController()
+
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -56,7 +65,13 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 .padding(innerPadding),
             color = MaterialTheme.colorScheme.surface
         ) {
-            DriversScreen()
+            NavHost(navController = navController, startDestination = "drivers") {
+                composable("drivers") {
+                    DriversScreen {
+                        Toast.makeText(context, "Driver: $it", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
         }
     }
 }
