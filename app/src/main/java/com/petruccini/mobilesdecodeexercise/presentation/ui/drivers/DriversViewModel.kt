@@ -1,4 +1,4 @@
-package com.petruccini.mobilesdecodeexercise.presentation.drivers
+package com.petruccini.mobilesdecodeexercise.presentation.ui.drivers
 
 import android.content.res.Resources
 import androidx.lifecycle.ViewModel

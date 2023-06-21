@@ -1,4 +1,4 @@
-package com.petruccini.mobilesdecodeexercise.presentation.drivers
+package com.petruccini.mobilesdecodeexercise.presentation.ui.drivers
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
